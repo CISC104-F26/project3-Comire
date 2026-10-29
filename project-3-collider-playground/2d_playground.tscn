@@ -1,0 +1,88 @@
+[gd_scene format=3 uid="uid://bce10e76e3st0"]
+
+[ext_resource type="Texture2D" uid="uid://bd8qu3tve4v1j" path="res://Screenshot 2024-12-09 at 11.51.55 AM.png" id="1_oxc40"]
+[ext_resource type="Texture2D" uid="uid://by6arwk3rtw3x" path="res://main_44_Young_Thug_So_Much_Fun_Album_cover_pixel-style_bricks-1.jpg" id="2_qsbx1"]
+[ext_resource type="Texture2D" uid="uid://cdof1yj6panjp" path="res://images.jpeg" id="3_hgj7b"]
+[ext_resource type="Texture2D" uid="uid://dyf7x22denrcn" path="res://images (1).jpeg" id="4_em4hi"]
+[ext_resource type="Script" uid="uid://ct8gakfjbx0ee" path="res://player.gd" id="5_em4hi"]
+[ext_resource type="Texture2D" uid="uid://h7m37t1eyu20" path="res://icon.svg" id="6_3mwtm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rbnfp"]
+size = Vector2(1304.7694, 724.32434)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kq5xs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_chwjq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jmthr"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_rbnfp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mpum8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r1w0n"]
+
+[node name="2D playground" type="Node2D" unique_id=551439004]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=63152253]
+position = Vector2(332, 82)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=794517821]
+position = Vector2(11, -2)
+scale = Vector2(0.15941514, 0.185)
+shape = SubResource("RectangleShape2D_rbnfp")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D" unique_id=576389133]
+position = Vector2(13, -1)
+scale = Vector2(0.15941514, 0.185)
+texture = ExtResource("1_oxc40")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=1346051052]
+position = Vector2(578, 101)
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D2" unique_id=571631039]
+scale = Vector2(0.25124985, 0.235)
+texture = ExtResource("2_qsbx1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" unique_id=1634682303]
+shape = SubResource("RectangleShape2D_kq5xs")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="." unique_id=1751825655]
+position = Vector2(115, 91)
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D3" unique_id=870027056]
+scale = Vector2(0.42605615, 0.34594882)
+texture = ExtResource("3_hgj7b")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3" unique_id=848684051]
+shape = SubResource("RectangleShape2D_chwjq")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="." unique_id=1074897060]
+position = Vector2(811, 102)
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D4" unique_id=1009924414]
+scale = Vector2(0.5111857, 0.37975395)
+texture = ExtResource("4_em4hi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4" unique_id=124876866]
+shape = SubResource("RectangleShape2D_jmthr")
+
+[node name="StaticBody2D5" type="StaticBody2D" parent="." unique_id=1736901120]
+position = Vector2(984, 71)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="StaticBody2D5" unique_id=1298937106]
+scale = Vector2(50.5, 81.5)
+mesh = SubResource("BoxMesh_rbnfp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D5" unique_id=1863245655]
+shape = SubResource("RectangleShape2D_mpum8")
+
+[node name="player" type="CharacterBody2D" parent="." unique_id=1152257983]
+position = Vector2(93, 249)
+script = ExtResource("5_em4hi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player" unique_id=929529902]
+shape = SubResource("RectangleShape2D_r1w0n")
+
+[node name="Sprite2D" type="Sprite2D" parent="player" unique_id=1303138426]
+texture = ExtResource("6_3mwtm")
