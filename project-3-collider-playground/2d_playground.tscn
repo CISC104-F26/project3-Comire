@@ -22,6 +22,8 @@ size = Vector2(1304.7694, 724.32434)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r1w0n"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_okltl"]
+
 [node name="2D playground" type="Node2D" unique_id=551439004]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=63152253]
@@ -78,7 +80,7 @@ mesh = SubResource("BoxMesh_rbnfp")
 shape = SubResource("RectangleShape2D_mpum8")
 
 [node name="player" type="CharacterBody2D" parent="." unique_id=1152257983]
-position = Vector2(93, 249)
+position = Vector2(94, 250)
 script = ExtResource("5_em4hi")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player" unique_id=929529902]
@@ -86,3 +88,9 @@ shape = SubResource("RectangleShape2D_r1w0n")
 
 [node name="Sprite2D" type="Sprite2D" parent="player" unique_id=1303138426]
 texture = ExtResource("6_3mwtm")
+
+[node name="area1" type="Area2D" parent="." unique_id=264657908]
+position = Vector2(476, 376)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="area1" unique_id=1436104206]
+shape = SubResource("RectangleShape2D_okltl")
