@@ -23,3 +23,19 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
+
+
+func _on_area_1_body_entered(body: Node2D) -> void:
+	print("And I entered area 1")
+
+
+func _on_area_2_body_entered(body: Node2D) -> void:
+	print("Now I entered area 2")
+
+
+func _on_area_1_body_exited(body: Node2D) -> void:
+	print("Player left area 1")
+
+
+func _on_area_2_body_exited(body: Node2D) -> void:
+	print("player left area 2")
