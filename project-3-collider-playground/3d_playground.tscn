@@ -1,6 +1,9 @@
 [gd_scene format=3 uid="uid://cw2mlkoqsdpu7"]
 
 [ext_resource type="Texture2D" uid="uid://bd8qu3tve4v1j" path="res://Screenshot 2024-12-09 at 11.51.55 AM.png" id="1_8tqwl"]
+[ext_resource type="Script" uid="uid://b685myk2js5p" path="res://player_3d.gd" id="2_4yhan"]
+[ext_resource type="Script" uid="uid://qu1770oxpkwd" path="res://area_3d_1.gd" id="3_ba1s6"]
+[ext_resource type="Script" uid="uid://h1vvx15iy7c8" path="res://area_3d_2.gd" id="4_jefae"]
 
 [sub_resource type="Environment" id="Environment_8tqwl"]
 
@@ -25,6 +28,12 @@ size = Vector3(2.728592, 2.6063232, 2.5516052)
 albedo_color = Color(1, 1, 0.67058825, 1)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kq5xs"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mpum8"]
+size = Vector3(10.130371, 6.5214844, 7.0561523)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_chwjq"]
+size = Vector3(10.335693, 6.8203125, 8.51239)
 
 [node name="3d playground" type="Node3D" unique_id=831364327]
 
@@ -94,18 +103,43 @@ mesh = SubResource("BoxMesh_kq5xs")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.130847, 2.580974, 0.6465485)
 shape = SubResource("BoxShape3D_kq5xs")
 
-[node name="CharacterBody3D" type="CharacterBody3D" parent="." unique_id=638117584]
+[node name="Player3D" type="CharacterBody3D" parent="." unique_id=638117584]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.745132, 0)
+script = ExtResource("2_4yhan")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="CharacterBody3D" unique_id=672274430]
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Player3D" unique_id=672274430]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5125427, 0)
 mesh = SubResource("CapsuleMesh_rbnfp")
 surface_material_override/0 = SubResource("StandardMaterial3D_jmthr")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D" unique_id=159130563]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player3D" unique_id=159130563]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5125427, 0)
 shape = SubResource("CapsuleShape3D_kq5xs")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=995236825]
 transform = Transform3D(-0.9999959, -0.0023558338, 0.001645735, 0, 0.57268006, 0.81977904, -0.0028737425, 0.81977564, -0.5726777, 0, 12.992215, -9.58022)
 current = true
+
+[node name="area3D_1" type="Area3D" parent="." unique_id=2005404697]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.87760687, 5.9051647)
+script = ExtResource("3_ba1s6")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="area3D_1" unique_id=1081079023]
+shape = SubResource("BoxShape3D_mpum8")
+
+[node name="Area3D_2" type="Area3D" parent="." unique_id=946625308]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1817327, 2.0426202)
+script = ExtResource("4_jefae")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D_2" unique_id=2127322816]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7.029866)
+shape = SubResource("BoxShape3D_chwjq")
+
+[connection signal="body_entered" from="area3D_1" to="Player3D" method="_on_area_3d_1_body_entered"]
+[connection signal="body_entered" from="area3D_1" to="area3D_1" method="_on_body_entered"]
+[connection signal="body_exited" from="area3D_1" to="Player3D" method="_on_area_3d_1_body_exited"]
+[connection signal="body_exited" from="area3D_1" to="area3D_1" method="_on_body_exited"]
+[connection signal="body_entered" from="Area3D_2" to="Player3D" method="_on_area_3d_2_body_entered"]
+[connection signal="body_entered" from="Area3D_2" to="Area3D_2" method="_on_body_entered"]
+[connection signal="body_exited" from="Area3D_2" to="Player3D" method="_on_area_3d_2_body_exited"]
+[connection signal="body_exited" from="Area3D_2" to="Area3D_2" method="_on_body_exited"]
