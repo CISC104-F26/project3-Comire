@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://bmtfo8gajw6hn"]
+
+[ext_resource type="Script" uid="uid://bpasigiyfpa60" path="res://rotating_block.gd" id="1_v1blu"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_kq5xs"]
+bounce = 1.0
+
+[sub_resource type="QuadMesh" id="QuadMesh_rbnfp"]
+size = Vector2(100, 50)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rbnfp"]
+size = Vector2(100, 50)
+
+[node name="rotating_block" type="RigidBody2D" unique_id=1483594141]
+physics_material_override = SubResource("PhysicsMaterial_kq5xs")
+contact_monitor = true
+max_contacts_reported = 4
+script = ExtResource("1_v1blu")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=932050042]
+mesh = SubResource("QuadMesh_rbnfp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1398855742]
+shape = SubResource("RectangleShape2D_rbnfp")

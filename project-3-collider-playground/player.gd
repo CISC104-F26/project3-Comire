@@ -27,15 +27,19 @@ func _physics_process(delta: float) -> void:
 
 func _on_area_1_body_entered(body: Node2D) -> void:
 	print("And I entered area 1")
+	$Sprite2D.scale = Vector2(1.3,1.3)
 
 
 func _on_area_2_body_entered(body: Node2D) -> void:
 	print("Now I entered area 2")
-
+	$Sprite2D.modulate = Color.YELLOW
+	$Sprite2D.rotation_degrees = 20.0
 
 func _on_area_1_body_exited(body: Node2D) -> void:
 	print("Player left area 1")
-
+	$Sprite2D.scale = Vector2(1.0,1.0)
 
 func _on_area_2_body_exited(body: Node2D) -> void:
 	print("player left area 2")
+	$Sprite2D.modulate = Color.PAPAYA_WHIP
+	
