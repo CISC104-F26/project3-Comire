@@ -47,7 +47,7 @@ shadow_enabled = true
 [node name="floor" type="StaticBody3D" parent="." unique_id=1370933052]
 
 [node name="Sprite3D" type="Sprite3D" parent="floor" unique_id=1128724429]
-transform = Transform3D(1, 0, 0, 0, 0.0136957215, -0.9999062, 0, 0.9999062, 0.0136957215, -0.2405181, 1.4801044, 0.44735336)
+transform = Transform3D(-0.9996282, 0.027263751, 0.00037343177, 0, 0.0136957215, -0.9999062, -0.027266309, -0.9995344, -0.013690629, -0.2405181, 1.4801044, 0.44735336)
 texture = ExtResource("1_8tqwl")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="floor" unique_id=274452041]
@@ -117,7 +117,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5125427, 0)
 shape = SubResource("CapsuleShape3D_kq5xs")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=995236825]
-transform = Transform3D(-0.9999959, -0.0023558338, 0.001645735, 0, 0.57268006, 0.81977904, -0.0028737425, 0.81977564, -0.5726777, 0, 12.992215, -9.58022)
+transform = Transform3D(0.9999977, 0.0017720967, -0.0012379487, 0.00021532639, 0.48817304, 0.87274677, 0.0021509249, -0.87274504, 0.48817155, 0, 13.13569, 9.466471)
 current = true
 
 [node name="area3D_1" type="Area3D" parent="." unique_id=2005404697]
